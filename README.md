@@ -1,5 +1,5 @@
 # dotfiles
-install script is provided.
+Install script is provided.
 ```bash
 chmod +x install.sh
 ./install.sh
