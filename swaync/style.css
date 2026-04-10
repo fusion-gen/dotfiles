@@ -6,7 +6,7 @@
 }
 
 .notification {
-    background: alpha(@background, 0.8);
+    background: alpha(@background, 0.9);
     border-radius: 12px;
     border: 2px solid @color4;
     padding: 16px;
@@ -16,12 +16,12 @@
 
 .notification.critical {
     border-color: @color1;
-    background: alpha(@color0, 0.9);
+    background: alpha(@color0, 0.95);
 }
 
 .notification progressbar {
     margin-top: 40px;
-    background-color: alpha(@color8, 0.2);
+    background-color: alpha(@color8, 0.3);
 }
 
 .notification progressbar progress {
@@ -31,8 +31,8 @@
 }
 
 .control-center {
-    background: alpha(@background, 0.85);
-    border: 1px solid alpha(@color4, 0.3);
+    background: alpha(@background, 0.95);
+    border: 1px solid alpha(@color4, 0.4);
     border-radius: 12px;
     margin: 40px;
 }
