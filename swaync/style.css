@@ -1,0 +1,55 @@
+@import "../../.cache/wallust/swaync-colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+/* Individual Notifications */
+.notification {
+    background: alpha(@background, 0.8);
+    border-radius: 12px;
+    border: 2px solid @color4;
+    padding: 16px;
+    margin: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.notification.critical {
+    border-color: @color1;
+    background: alpha(@color0, 0.9);
+}
+
+/* Volume/Brightness Bars */
+.notification progressbar {
+    margin-top: 10px;
+    background-color: alpha(@color8, 0.2);
+}
+
+.notification progressbar progress {
+    background-color: @color4;
+    border-radius: 5px;
+    min-height: 8px;
+}
+
+/* The Main Sidebar (Control Center) */
+.control-center {
+    background: alpha(@background, 0.85);
+    border: 1px solid alpha(@color4, 0.3);
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.widget-title > label {
+    font-size: 1.5rem;
+    color: @color7;
+    margin: 10px;
+}
+
+/* Buttons in the Control Center */
+.widget-title > button {
+    background: @color4;
+    color: @background;
+    border-radius: 8px;
+    padding: 5px;
+}
