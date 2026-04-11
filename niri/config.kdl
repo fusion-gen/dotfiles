@@ -212,7 +212,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"librewolf|google-chrome|code|obsidian$|(?i)cine|vesktop"#
+    match app-id="(?i)librewolf|code|celluloid|cine|vesktop|steam"
     open-maximized true
 }
 
