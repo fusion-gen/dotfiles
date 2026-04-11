@@ -277,10 +277,11 @@ window-rule {
     open-floating true
 }
 
-// Steam FIXED
+// Steam
 window-rule {
-    match app-id=r#"steam"#
-    match title=r#".*(Friends|Settings|Properties).*"#
+    match app-id=r#"^steam$"#
+    exclude title=r#"^Steam$"#
+
     open-floating true
 }
 
