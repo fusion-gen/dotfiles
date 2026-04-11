@@ -319,7 +319,7 @@ environment {
 
     _JAVA_AWT_WM_NONREPARENTING "1"
 
-    SDL_VIDEODRIVER "wayland"
+    SDL_VIDEODRIVER "wayland,x11"
     CLUTTER_BACKEND "wayland"
 
     VDPAU_DRIVER "va_gl"
