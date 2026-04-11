@@ -10,7 +10,7 @@ spawn-at-startup "swaync"
 
 // General Settings
 prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+screenshot-path null
 
 output "DP-2" {
     mode "1920x1080@165.004"
@@ -107,6 +107,9 @@ binds {
     Mod+C { center-column; }
 
     // Media Keys
+
+    Mod+Shift+S { screenshot; }
+
     XF86AudioRaiseVolume allow-when-locked=true { 
 	spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -e -h string:x-canonical-private-synchronous:volume -h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}') 'Volume'" 
     }
