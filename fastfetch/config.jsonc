@@ -44,15 +44,20 @@
     },
     {
       "type": "packages",
-      "format": "{} (pacman)",
       "key": "Pkgs  ",
       "keyColor": "35"
+    },
+    {
+      "type": "wm",
+      "format": "{1} {version}",
+      "key": "WM    ",
+      "keyColor": "36"
     },
     {
       "type": "uptime",
       "format": "{2}h {3}m",
       "key": "Uptime",
-      "keyColor": "36"
+      "keyColor": "37"
     },
     {
       "type": "cpu",
@@ -72,11 +77,6 @@
     {
       "type": "disk",
       "key": "Disk  ",
-      "keyColor": "37"
-    },
-    {
-      "type": "battery",
-      "key": "Bat   ",
       "keyColor": "37"
     },
     "break",
