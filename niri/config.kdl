@@ -112,23 +112,19 @@ binds {
 
     // Media keys
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -h int:v>
+        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh vol_up"
     }
-
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -h int:v>
+        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh vol_down"
     }
-
     XF86AudioMute allow-when-locked=true {
-        spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @>
+        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh mute"
     }
-
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set 5%+ && notify-send -h int:value:$(brightnessctl>
+        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh bright_up"
     }
-
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set 5%- && notify-send -h int:value:$(brightnessctl>
+        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh bright_down"
     }
 }
 
@@ -229,7 +225,7 @@ window-rule {
 
 // File dialogs
 window-rule {
-    match title=r#".*(Open|Save|Select|File).*"#
+    match title=r#".*(Open|Save|Select).*"#
     open-floating true
     default-column-width { proportion 0.0; }
     max-width 800
