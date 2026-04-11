@@ -4,6 +4,7 @@ DOT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 packages=(
     alacritty
+    celluloid
     fastfetch
     gnome-keyring
     hypridle
@@ -45,7 +46,7 @@ ln -sf "$DOT_DIR/.zprofile" "$HOME/.zprofile"
 ln -sf "$DOT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
 mkdir -p "$HOME/.config"
-configs=(alacritty fastfetch fontconfig niri swaync vicinae wallpapers wallust waybar yazi zsh)
+configs=(alacritty fastfetch fontconfig mpv niri swaync vicinae wallpapers wallust waybar yazi zsh)
 
 for folder in "${configs[@]}"; do
     ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
