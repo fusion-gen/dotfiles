@@ -212,11 +212,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"google-chrome"#
-    match app-id=r#"code"#
-    match app-id=r#"obsidian$"#
-    match app-id=r#"cine"#
-    match app-id=r#"vesktop"#
+    match app-id=r#"librewolf|google-chrome|code|obsidian$|(?i)cine|vesktop"#
     open-maximized true
 }
 
