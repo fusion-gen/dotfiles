@@ -58,73 +58,81 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Application Shortcuts
-    Mod+T 		{ spawn "alacritty"; }
-    Mod+D 		{ spawn "vicinae" "toggle"; }
-    Mod+B 		{ spawn "librewolf"; }
-    Mod+E 		{ spawn "alacritty" "-e" "yazi"; }
-    Mod+Alt+L        	{ spawn "hyprlock"; }
-    Mod+N 		{ spawn "swaync-client" "-t" "-sw"; }
-    Mod+Shift+N 	{ spawn "swaync-client" "-C"; }
-    Mod+Alt+N 		{ spawn "swaync-client" "-d"; }
-    Mod+Shift+E 	{ quit; }
-    Ctrl+Alt+Delete 	{ quit; }
+    Mod+T { spawn "alacritty"; }
+    Mod+D { spawn "vicinae" "toggle"; }
+    Mod+B { spawn "librewolf"; }
+    Mod+E { spawn "alacritty" "-e" "yazi"; }
+    Mod+Alt+L { spawn "hyprlock"; }
+
+    Mod+N { spawn "swaync-client" "-t" "-sw"; }
+    Mod+Shift+N { spawn "swaync-client" "-C"; }
+    Mod+Alt+N { spawn "swaync-client" "-d"; }
+
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
 
     // Window Management
     Mod+Q { close-window; }
 
-    // Navigation: Focus (Vim keys)
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    // Focus (Vim keys)
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
 
-    // Navigation: Focus (Arrow keys)
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    // Focus (Arrow keys)
+    Mod+Left { focus-column-left; }
+    Mod+Down { focus-window-down; }
+    Mod+Up { focus-window-up; }
     Mod+Right { focus-column-right; }
 
-    // Moving Windows
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    // Moving windows
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+J { move-window-down; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+L { move-column-right; }
 
-    // Workspaces (Standard scroll style)
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    // Workspaces
+    Mod+Page_Down { focus-workspace-down; }
+    Mod+Page_Up { focus-workspace-up; }
+    Mod+U { focus-workspace-down; }
+    Mod+I { focus-workspace-up; }
+
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+Page_Up { move-column-to-workspace-up; }
 
-    // Layout Manipulation
+    // Layout
     Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
 
-    // Media Keys
+    // Screenshot
     Mod+Shift+S { screenshot; }
 
+    // Media keys
     XF86AudioRaiseVolume allow-when-locked=true {
-	spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -e -h string:x-canonical-private-synchronous:volume -h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}') 'Volume'"
+        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
     }
+
     XF86AudioLowerVolume allow-when-locked=true {
-   	spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -e -h string:x-canonical-private-synchronous:volume -h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}') 'Volume'"
+        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
     }
+
     XF86AudioMute allow-when-locked=true {
-    	spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\\[MUTED\\]' && notify-send -e -h string:x-canonical-private-synchronous:volume 'Muted' || notify-send -e -h string:x-canonical-private-synchronous:volume 'Unmuted')"
+        spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
     }
+
     XF86MonBrightnessUp allow-when-locked=true {
-    	spawn "sh" "-c" "brightnessctl set 5%+ && notify-send -e -h string:x-canonical-private-synchronous:brightness -h int:value:$(brightnessctl i | grep -oP '\\(\\K[^%]+') 'Brightness'"
+        spawn "sh" "-c" "brightnessctl set 5%+";
     }
+
     XF86MonBrightnessDown allow-when-locked=true {
-    	spawn "sh" "-c" "brightnessctl set 5%- && notify-send -e -h string:x-canonical-private-synchronous:brightness -h int:value:$(brightnessctl i | grep -oP '\\(\\K[^%]+') 'Brightness'"
+        spawn "sh" "-c" "brightnessctl set 5%-";
     }
 }
 
-// Layout Settings
+// Layout
 layout {
     gaps 16
     center-focused-column "on-overflow"
@@ -137,7 +145,7 @@ layout {
     }
 
     focus-ring {
-	width 4
+        width 4
     }
 
     insert-hint {
@@ -146,53 +154,71 @@ layout {
     }
 
     struts {}
-
 }
 
-// Animation Settings
+// Animations
 animations {
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
+
     window-open {
         duration-ms 200
         curve "ease-out-quad"
     }
+
     window-close {
         duration-ms 200
         curve "ease-out-cubic"
     }
+
     horizontal-view-movement {
         spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
     }
+
     window-movement {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
+
     window-resize {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
+
     config-notification-open-close {
         spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
     }
+
     screenshot-ui-open {
         duration-ms 300
         curve "ease-out-quad"
     }
+
     overview-open-close {
         spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
     }
 }
 
 // Window Rules
-// Application-specific rules
+
 window-rule {
-    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
-    match app-id=r#"librewolf$"# title="^Bitwarden$"
+    match app-id=r#"librewolf$"#
+    match title=r#"^Picture-in-Picture$"#
     open-floating true
 }
 
 window-rule {
-    match app-id=r#"librewolf"#
+    match app-id=r#"librewolf$"#
+    match title=r#"^Bitwarden$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"librewolf$"#
+    match title=r#".*(Google Accounts|Sign).*"#
+    open-floating true
+}
+
+window-rule {
     match app-id=r#"google-chrome"#
     match app-id=r#"code"#
     match app-id=r#"obsidian$"#
@@ -201,34 +227,13 @@ window-rule {
     open-maximized true
 }
 
-// File dialogs - Open/Save/Select
+// File dialogs
 window-rule {
-    match title=r#".*(Open|Save|Select).*"#
-    open-floating true
-    default-column-width { proportion 0.0; }
-}
-
-/*
-window-rule {
-    match title=r#".*File.*"#
+    match title=r#".*(Open|Save|Select|File).*"#
     open-floating true
     default-column-width { proportion 0.0; }
     max-width 800
     max-height 1000
-}
-*/
-
-window-rule {
-    match app-id=r#"org\.gtk\.FileChooserDialog"#
-    open-floating true
-    default-column-width { proportion 0.0; }
-    max-width 800
-    max-height 1000
-}
-
-window-rule {
-    match title=r#".*Sign in - Google Accounts — Librewolf"#
-    open-floating true
 }
 
 // System dialogs
@@ -242,7 +247,7 @@ window-rule {
     open-floating true
 }
 
-// Authentication dialogs
+// Auth
 window-rule {
     match app-id=r#"org\.kde\.polkit-kde-authentication-agent-1"#
     open-floating true
@@ -253,18 +258,21 @@ window-rule {
     open-floating true
 }
 
-// Password managers
+// KeepassXC FIXED
 window-rule {
-    match app-id=r#"org\.keepassxc\.KeePassXC"# title=r#".*Auto-Type.*"#
+    match app-id=r#"org\.keepassxc\.KeePassXC"#
+    match title=r#".*Auto-Type.*"#
     open-floating true
 }
 
+// Bitwarden
 window-rule {
-    match app-id=r#"Bitwarden"# title=r#".*unlock.*"#
+    match app-id=r#"Bitwarden"#
+    match title=r#".*unlock.*"#
     open-floating true
 }
 
-// Notification and system utilities
+// Utilities
 window-rule {
     match app-id=r#"nm-connection-editor"#
     open-floating true
@@ -280,52 +288,44 @@ window-rule {
     open-floating true
 }
 
-// Steam dialogs
+// Steam FIXED
 window-rule {
-    match app-id=r#"steam"# title=r#".*(Friends|Settings|Properties).*"#
+    match app-id=r#"steam"#
+    match title=r#".*(Friends|Settings|Properties).*"#
     open-floating true
 }
 
-// Global window appearance
+// Global appearance
 window-rule {
-//    opacity 0.95
     geometry-corner-radius 6
     clip-to-geometry true
     draw-border-with-background false
 }
 
-// Environment Variables
+// Environment
 environment {
     DISPLAY null
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_SESSION_TYPE "wayland"
     XDG_CURRENT_DESKTOP "niri"
 
-    // Wayland Platform Settings
     QT_QPA_PLATFORM "wayland"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
 
-    // GTK Settings
     GDK_BACKEND "wayland,x11"
 
-    // Firefox Wayland + NVIDIA
     MOZ_ENABLE_WAYLAND "1"
     MOZ_DBUS_REMOTE "1"
     // MOZ_DISABLE_RDD_SANDBOX "1"
     // LIBVA_DRIVER_NAME "nvidia"
     // CUDA_DISABLE_PERF_BOOST "1"
 
-    // Java Applications
     _JAVA_AWT_WM_NONREPARENTING "1"
 
-    // SDL Applications
     SDL_VIDEODRIVER "wayland"
-
-    // CLUTTER Applications
     CLUTTER_BACKEND "wayland"
 
-    // Performance
     VDPAU_DRIVER "va_gl"
     NVD_BACKEND "direct"
 }
