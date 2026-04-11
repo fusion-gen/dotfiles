@@ -290,6 +290,14 @@ window-rule {
     open-floating true
 }
 
+// Sober
+window-rule {
+    match app-id=r#"(?i)sober"#
+    exclude title=r#"^Sober$"#
+
+    open-floating true
+}
+
 // Global appearance
 window-rule {
     geometry-corner-radius 6
