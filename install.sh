@@ -51,6 +51,7 @@ for folder in "${configs[@]}"; do
     ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
 done
 
+chmod +x "$HOME/.config/niri/volbright.sh"
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 [ "$SHELL" != "/usr/bin/zsh" ] && chsh -s /usr/bin/zsh
 wallust run "$DOT_DIR/wallpapers/blackhole.jpg"
