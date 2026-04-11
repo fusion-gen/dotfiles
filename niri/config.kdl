@@ -197,20 +197,17 @@ animations {
 // Window Rules
 
 window-rule {
-    match app-id=r#"librewolf$"#
-    match title=r#"^Picture-in-Picture$"#
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
 window-rule {
-    match app-id=r#"librewolf$"#
-    match title=r#"^Bitwarden$"#
+    match app-id=r#"librewolf$"# title="^Bitwarden$"
     open-floating true
 }
 
 window-rule {
-    match app-id=r#"librewolf$"#
-    match title=r#".*(Google Accounts|Sign).*"#
+    match app-id="librewolf" title=r#"Sign in - Google Accounts"#
     open-floating true
 }
 
