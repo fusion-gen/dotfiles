@@ -216,15 +216,6 @@ window-rule {
     open-maximized true
 }
 
-// File dialogs
-window-rule {
-    match title=r#".*(Open|Save|Select).*"#
-    open-floating true
-    default-column-width { proportion 0.0; }
-    max-width 800
-    max-height 1000
-}
-
 // System dialogs
 window-rule {
     match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
