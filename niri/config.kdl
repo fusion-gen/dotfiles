@@ -47,9 +47,10 @@ overview {
     }
 }
 
-layer-rule {
-    match namespace="^awww-daemon$"
-    place-within-backdrop true
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 binds {
