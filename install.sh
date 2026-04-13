@@ -47,11 +47,13 @@ ln -sf "$DOT_DIR/.zprofile" "$HOME/.zprofile"
 ln -sf "$DOT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
 mkdir -p "$HOME/.config"
-configs=(alacritty fastfetch fontconfig hypr mpv niri noctalia vicinae wallpapers wallust yazi zsh)
+configs=(alacritty fastfetch fontconfig hypr mpv niri noctalia vicinae wallust yazi zsh)
 
 for folder in "${configs[@]}"; do
-    ln -snf "$DOT_DIR/$folder" "$HOME/.config/"
+    ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
 done
+
+ln -snf $DOT_DIR/wallpapers $HOME/Pictures/Wallpapers
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 [ "$SHELL" != "/usr/bin/zsh" ] && chsh -s /usr/bin/zsh
