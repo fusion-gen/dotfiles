@@ -1,31 +1,16 @@
 #!/bin/bash
 
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 DOT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 packages=(
-    alacritty
-    celluloid
-    fastfetch
-    gnome-keyring
-    hypridle
-    hyprlock
-    libnotify
-    niri
-    noctalia-shell
-    noto-fonts
-    noto-fonts-emoji
-    oh-my-zsh-git
-    pavucontrol
-    polkit-kde-agent
-    ttf-jetbrains-mono-nerd
-    ttf-sarasa-gothic
-    vicinae
-    wallust
-    xdg-desktop-portal-gnome
-    xwayland-satellite
-    yazi
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    alacritty celluloid fastfetch gnome-keyring hypridle hyprlock 
+    libnotify niri noctalia-shell noto-fonts noto-fonts-emoji 
+    oh-my-zsh-git pavucontrol polkit-kde-agent ttf-jetbrains-mono-nerd 
+    ttf-sarasa-gothic vicinae wallust xdg-desktop-portal-gnome 
+    xwayland-satellite yazi zsh-autosuggestions zsh-syntax-highlighting 
     zsh-theme-powerlevel10k-git
 )
 
@@ -38,9 +23,7 @@ else
     exit 1
 fi
 
-sudo -v
-
-$AUR_HELPER -S --needed "${packages[@]}"
+$AUR_HELPER -S --needed --noconfirm "${packages[@]}"
 
 ln -sf "$DOT_DIR/.zshrc"    "$HOME/.zshrc"
 ln -sf "$DOT_DIR/.zprofile" "$HOME/.zprofile"
@@ -53,8 +36,12 @@ for folder in "${configs[@]}"; do
     ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
 done
 
-ln -snf $DOT_DIR/wallpapers $HOME/Pictures/Wallpapers
+ln -snf "$DOT_DIR/wallpapers" "$HOME/Pictures/Wallpapers"
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-[ "$SHELL" != "/usr/bin/zsh" ] && chsh -s /usr/bin/zsh
+
+if [ "$SHELL" != "/usr/bin/zsh" ]; then
+    sudo chsh -s /usr/bin/zsh "$USER"
+fi
+
 wallust run "$DOT_DIR/wallpapers/blackhole.jpg"
