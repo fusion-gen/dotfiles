@@ -11,20 +11,21 @@ packages=(
     hyprlock
     libnotify
     niri
+    noctalia-shell
     noto-fonts
     noto-fonts-emoji
     oh-my-zsh-git
     pavucontrol
     polkit-kde-agent
-    swaync
     ttf-jetbrains-mono-nerd
     ttf-sarasa-gothic
     vicinae
     wallust
-    waybar
     xdg-desktop-portal-gnome
     xwayland-satellite
     yazi
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     zsh-theme-powerlevel10k-git
 )
 
@@ -46,13 +47,12 @@ ln -sf "$DOT_DIR/.zprofile" "$HOME/.zprofile"
 ln -sf "$DOT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
 mkdir -p "$HOME/.config"
-configs=(alacritty fastfetch fontconfig mpv niri swaync vicinae wallpapers wallust waybar yazi zsh)
+configs=(alacritty fastfetch fontconfig hypr mpv niri noctalia vicinae wallpapers wallust yazi zsh)
 
 for folder in "${configs[@]}"; do
-    ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
+    ln -snf "$DOT_DIR/$folder" "$HOME/.config/"
 done
 
-chmod +x "$HOME/.config/niri/volbright.sh"
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 [ "$SHELL" != "/usr/bin/zsh" ] && chsh -s /usr/bin/zsh
 wallust run "$DOT_DIR/wallpapers/blackhole.jpg"

@@ -2,10 +2,9 @@ include "colors.kdl"
 
 // Startup Applications
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "waybar"
-spawn-at-startup "sh" "-c" "vicinae server &"
+spawn-at-startup "vicinae" "server"
 spawn-at-startup "hypridle"
-spawn-at-startup "swaync"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 
 // General Settings
 prefer-no-csd
@@ -64,10 +63,6 @@ binds {
     Mod+E { spawn "alacritty" "-e" "yazi"; }
     Mod+Alt+L { spawn "hyprlock"; }
 
-    Mod+N { spawn "swaync-client" "-t" "-sw"; }
-    Mod+Shift+N { spawn "swaync-client" "-C"; }
-    Mod+Alt+N { spawn "swaync-client" "-d"; }
-
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
@@ -112,19 +107,23 @@ binds {
 
     // Media keys
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh vol_up"
+        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
     }
+
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh vol_down"
+        spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
     }
+
     XF86AudioMute allow-when-locked=true {
-        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh mute"
+        spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
     }
+
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh bright_up"
+        spawn "sh" "-c" "brightnessctl set 5%+";
     }
+
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "sh" "-c" "$HOME/.config/niri/volbright.sh bright_down"
+        spawn "sh" "-c" "brightnessctl set 5%-";
     }
 }
 
@@ -298,7 +297,6 @@ window-rule {
 
 // Environment
 environment {
-    DISPLAY null
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_SESSION_TYPE "wayland"
     XDG_CURRENT_DESKTOP "niri"
@@ -307,7 +305,7 @@ environment {
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
 
-    GDK_BACKEND "wayland,x11"
+    GDK_BACKEND "wayland"
 
     MOZ_ENABLE_WAYLAND "1"
     MOZ_DBUS_REMOTE "1"
@@ -317,7 +315,7 @@ environment {
 
     _JAVA_AWT_WM_NONREPARENTING "1"
 
-    SDL_VIDEODRIVER "wayland,x11"
+    SDL_VIDEODRIVER "wayland"
     CLUTTER_BACKEND "wayland"
 
     VDPAU_DRIVER "va_gl"
