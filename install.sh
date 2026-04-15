@@ -6,10 +6,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 DOT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 packages=(
-    alacritty celluloid fastfetch gnome-keyring hypridle hyprlock 
+    alacritty fastfetch gnome-keyring hypridle hyprlock 
     libnotify niri noctalia-shell noto-fonts noto-fonts-emoji 
-    oh-my-zsh-git pavucontrol polkit-kde-agent ttf-jetbrains-mono-nerd 
-    ttf-sarasa-gothic vicinae wallust xdg-desktop-portal-gnome 
+    oh-my-zsh-git pipewire-pulse polkit-kde-agent ttf-jetbrains-mono-nerd 
+    ttf-sarasa-gothic vicinae wallust xdg-desktop-portal-gnome wireplumber 
     xwayland-satellite yazi zsh-autosuggestions zsh-syntax-highlighting 
     zsh-theme-powerlevel10k-git
 )
