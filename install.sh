@@ -30,7 +30,11 @@ ln -sf "$DOT_DIR/.zprofile" "$HOME/.zprofile"
 ln -sf "$DOT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 
 touch "$HOME/.zsh_history"
+
 chmod 600 "$HOME/.zsh_history"
+chmod 600 "$HOME/.zshrc"
+chmod 600 "$HOME/.zprofile"
+chmod 600 "$HOME/.p10k.zsh"
 
 mkdir -p "$HOME/.config"
 configs=(alacritty fastfetch fontconfig hypr mpv niri noctalia vicinae wallust yazi zsh)
