@@ -32,12 +32,6 @@
       "keyColor": "32"
     },
     {
-      "type": "host",
-      "format": "{5} {1}",
-      "key": "Host  ",
-      "keyColor": "33"
-    },
-    {
       "type": "terminal",
       "key": "Term  ",
       "keyColor": "34"

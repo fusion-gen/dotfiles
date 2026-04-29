@@ -2,6 +2,7 @@
 # ~/.zshrc
 #
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
 
 HISTFILE="$HOME/.zsh_history"
 
