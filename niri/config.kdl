@@ -212,7 +212,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="(?i)librewolf|zed|code|celluloid|cine|vesktop|steam"
+    match app-id="(?i)librewolf|zed|code|celluloid|cine|slack|vesktop|steam"
     open-maximized true
 }
 
