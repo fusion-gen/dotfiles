@@ -3,6 +3,7 @@
 #
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$HOME/.rokit/bin:$PATH"
 
 HISTFILE="$HOME/.zsh_history"
 
