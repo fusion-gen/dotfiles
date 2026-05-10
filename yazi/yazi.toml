@@ -31,32 +31,32 @@ ebook = [
 ]
 
 [open]
-rules = [
-    # Folder
-    { name = "*/", use = ["open", "edit", "reveal"] },
-    # Text
-    { mime = "text/*", use = ["edit", "reveal"] },
-    # Markdown
-    { mime = "text/markdown", use = ["markdown", "edit", "reveal"] },
-    # Image
-    { mime = "image/*", use = ["open", "reveal"] },
-    # Media
-    { mime = "video/*", use = ["play", "reveal"] },
-    { mime = "audio/*", use = ["play", "reveal"] },
-    # Archive
-    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = ["extract", "view_archive", "reveal"] },
-    # PDF
-    { mime = "application/pdf", use = ["pdf", "reveal"] },
-    # Ebooks
-    { mime = "application/epub+zip", use = ["ebook", "reveal"] },
-    # JSON
-    { mime = "application/{json,ndjson}", use = ["edit", "reveal"] },
-    # JavaScript
-    { mime = "*/javascript", use = ["edit", "reveal"] },
-    # Empty file
-    { mime = "inode/empty", use = ["edit", "reveal"] },
-    # Fallback
-    { name = "*", use = ["open", "reveal"] },
+rules = [  
+    # Folder  
+    { url = "*/", use = ["open", "edit", "reveal"] },  
+    # Text  
+    { mime = "text/*", use = ["edit", "reveal"] },  
+    # Markdown  
+    { mime = "text/markdown", use = ["markdown", "edit", "reveal"] },  
+    # Image  
+    { mime = "image/*", use = ["open", "reveal"] },  
+    # Media  
+    { mime = "video/*", use = ["play", "reveal"] },  
+    { mime = "audio/*", use = ["play", "reveal"] },  
+    # Archive  
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = ["extract", "view_archive", "reveal"] },  
+    # PDF  
+    { mime = "application/pdf", use = ["pdf", "reveal"] },  
+    # Ebooks  
+    { mime = "application/epub+zip", use = ["ebook", "reveal"] },  
+    # JSON  
+    { mime = "application/{json,ndjson}", use = ["edit", "reveal"] },  
+    # JavaScript  
+    { mime = "*/javascript", use = ["edit", "reveal"] },  
+    # Empty file  
+    { mime = "inode/empty", use = ["edit", "reveal"] },  
+    # Fallback  
+    { url = "*", use = ["open", "reveal"] },  
 ]
 
 [mgr]
