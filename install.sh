@@ -43,6 +43,11 @@ for folder in "${configs[@]}"; do
     ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
 done
 
+cat << 'EOF' | sudo tee -a /etc/pam.d/login
+auth        optional    pam_gnome_keyring.so
+session     optional    pam_gnome_keyring.so auto_start
+EOF
+
 ln -snf "$DOT_DIR/wallpapers" "$HOME/Pictures/Wallpapers"
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
