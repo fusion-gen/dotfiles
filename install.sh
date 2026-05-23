@@ -8,6 +8,7 @@ DOT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 packages=(
     alacritty
     fastfetch
+    gnome-keyring
     hypridle
     hyprlock
     libnotify
@@ -16,7 +17,6 @@ packages=(
     noto-fonts
     noto-fonts-emoji
     oh-my-zsh-git
-    oo7
     pipewire-pulse
     polkit-kde-agent
     ttf-jetbrains-mono-nerd
