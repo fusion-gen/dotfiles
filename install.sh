@@ -6,11 +6,29 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 DOT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 packages=(
-    alacritty fastfetch gnome-keyring hypridle hyprlock 
-    libnotify niri noctalia-shell noto-fonts noto-fonts-emoji 
-    oh-my-zsh-git pipewire-pulse polkit-kde-agent ttf-jetbrains-mono-nerd 
-    ttf-sarasa-gothic vicinae wallust xdg-desktop-portal-gnome wireplumber 
-    xwayland-satellite yazi zsh-autosuggestions zsh-syntax-highlighting 
+    alacritty
+    fastfetch
+    hypridle
+    hyprlock
+    libnotify
+    niri
+    noctalia-shell
+    noto-fonts
+    noto-fonts-emoji
+    oh-my-zsh-git
+    oo7
+    pipewire-pulse
+    polkit-kde-agent
+    ttf-jetbrains-mono-nerd
+    ttf-sarasa-gothic
+    vicinae
+    wallust
+    xdg-desktop-portal-gnome
+    wireplumber
+    xwayland-satellite
+    yazi
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     zsh-theme-powerlevel10k-git
 )
 
@@ -42,11 +60,6 @@ configs=(alacritty fastfetch fontconfig hypr mpv niri noctalia vicinae wallust y
 for folder in "${configs[@]}"; do
     ln -snf "$DOT_DIR/$folder" "$HOME/.config/$folder"
 done
-
-cat << 'EOF' | sudo tee -a /etc/pam.d/login
-auth        optional    pam_gnome_keyring.so
-session     optional    pam_gnome_keyring.so auto_start
-EOF
 
 ln -snf "$DOT_DIR/wallpapers" "$HOME/Pictures/Wallpapers"
 
