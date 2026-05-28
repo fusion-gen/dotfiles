@@ -61,7 +61,7 @@ binds {
     Mod+T { spawn "alacritty"; }
     Mod+D { spawn "vicinae" "toggle"; }
     Mod+B { spawn "librewolf"; }
-    Mod+E { spawn "alacritty" "-e" "yazi"; }
+    Mod+E { spawn "nautilus"; }
     Mod+Alt+L { spawn "hyprlock"; }
 
     Mod+Shift+E { quit; }
